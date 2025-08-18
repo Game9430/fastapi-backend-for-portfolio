@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+jinja2
+pydantic
+numpy
+scikit-learn==1.7.0
+nltk

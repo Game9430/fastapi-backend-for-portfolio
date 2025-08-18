@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🔎 Book Recommendations</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>🔎 Book Recommendations</h1>
+  </header>
+
+  <main>
+    <!-- Search form -->
+    <section>
+      <form action="/recommend_books" method="post">
+        <input type="text" name="user_input" placeholder="Enter a book title" required>
+        <button type="submit">Recommend</button>
+      </form>
+    </section>
+
+    <!-- Recommended Books Section -->
+    {% if recommended_books %}
+    <section id="recommendations">
+      <h2>📖 Recommendations for "{{ user_input }}"</h2>
+      <div class="book-grid">
+        {% for book in recommended_books %}
+        <div class="book-card">
+          <img src="{{ book.image }}" alt="{{ book.book_name }}">
+          <h3>{{ book.book_name }}</h3>
+          <p>{{ book.author }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+  </main>
+</body>
+</html>
